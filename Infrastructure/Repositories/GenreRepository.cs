@@ -39,4 +39,12 @@ public class GenreRepository : IGenreRepository
         var sql = "update genres set name = @Name where id = @Id";
         con.Execute(sql, genre);
     }
+    public void GetGenresAmount()
+    {
+        using var con = Database.Connection();
+        con.Open();
+        var sql = "select count(*) from genres";
+        var genresAmount = con.ExecuteScalar<int>(sql);
+        Console.WriteLine($"Genres amount: {genresAmount}");
+    }
 }

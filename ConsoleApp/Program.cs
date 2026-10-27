@@ -20,6 +20,15 @@ while (true)
     Console.WriteLine("10.Add Genre");
     Console.WriteLine("11.Update Genre");
     Console.WriteLine("12.Delete Genre");
+    System.Console.WriteLine("13.Get Book Amount");
+    System.Console.WriteLine("14.Get Author Amount");
+    System.Console.WriteLine("15.Get Genre Amount");
+    System.Console.WriteLine("16.Get Minimum Published Year By Author");
+    System.Console.WriteLine("17.Get Maximum Published Year By Author");
+    System.Console.WriteLine("18.Get Minimum Published Year By Genre");
+    System.Console.WriteLine("19.Get Maximum Published Year By Genre");
+    System.Console.WriteLine("20.Get amount of books by published year");
+    System.Console.WriteLine("21.Get amount of books by genre");
     System.Console.WriteLine("==========================");
     var choose = Convert.ToInt32(Console.ReadLine());
     switch (choose)
@@ -186,6 +195,65 @@ while (true)
                 Console.Write("Enter genre id: ");
                 var id = Convert.ToInt32(Console.ReadLine());
                 genreRepo.DeleteGenre(id);
+                break;
+            }
+        case 13:
+            {
+                repo.GetBookAmount();
+                break;
+            }
+        case 14:
+            {
+                authorRepo.GetAuthorsAmount();
+                break;
+            }
+        case 15:
+            {
+                genreRepo.GetGenresAmount();
+                break;
+            }
+        case 16:
+            {
+                Console.Write("Enter author id: ");
+                var authorId = Convert.ToInt32(Console.ReadLine());
+                repo.GetMinPublishedYearByAuthor(authorId);
+                break;
+            }
+        case 17:
+            {
+                Console.Write("Enter author id: ");
+                var authorId = Convert.ToInt32(Console.ReadLine());
+                repo.GetMaxPublishedYearByAuthor(authorId);
+                break;
+            }
+        case 18:
+            {
+                Console.Write("Enter genre id: ");
+                var genreId = Convert.ToInt32(Console.ReadLine());
+                repo.GetMinPublishedYearByGenre(genreId);
+                break;
+            }
+
+        case 19:
+            {
+                Console.Write("Enter genre id: ");
+                var genreId = Convert.ToInt32(Console.ReadLine());
+                repo.GetMaxPublishedYearByGenre(genreId);
+                break;
+            }
+
+        case 20:
+            {
+                Console.Write("Enter published year: ");
+                var year = Convert.ToInt32(Console.ReadLine());
+                repo.GetAmountByPublishedYear(year);
+                break;
+            }
+        case 21:
+            {
+                Console.Write("Enter genre id: ");
+                var genreId = Convert.ToInt32(Console.ReadLine());
+                repo.GetAmountByGenre(genreId);
                 break;
             }
     }

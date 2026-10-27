@@ -39,4 +39,13 @@ public class AuthorRepository : IAuthorRepository
         var sql = "update author set fullname = @Fullname, country = @Country, birthdate = @Birthdate where id = @Id";
         con.Execute(sql, author);
     }
+    public void GetAuthorsAmount()
+    {
+        using var con = Database.Connection();
+        con.Open();
+        var sql = "select count(*) from author";
+        var authorsAmount = con.ExecuteScalar<int>(sql);
+        Console.WriteLine($"Authors amount: {authorsAmount}");
+    }
+    
 }
