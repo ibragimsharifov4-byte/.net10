@@ -4,8 +4,8 @@ namespace Infrastructure.Interfaces;
 
 public interface IGenreRepository
 {
-    void AddGenre(Genre genre);
-    void DeleteGenre(int id);
-    List<Genre> GetGenres();
-    void UpdateGenre(Genre genre);
+    Task AddGenre(Genre genre);
+    Task DeleteGenre(int id);
+    Task<List<Genre>> GetGenres();
+    Task UpdateGenre(Genre genre);
 }

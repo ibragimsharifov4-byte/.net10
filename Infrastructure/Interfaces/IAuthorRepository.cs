@@ -4,8 +4,8 @@ namespace Infrastructure.Interfaces;
 
 public interface IAuthorRepository
 {
-    void AddAuthor(Author author);
-    void DeleteAuthor(int id);
-    List<Author> GetAuthors();
-    void UpdateAuthor(Author author);
+    Task AddAuthor(Author author);
+    Task DeleteAuthor(int id);
+    Task<List<Author>> GetAuthors();
+    Task UpdateAuthor(Author author);
 }

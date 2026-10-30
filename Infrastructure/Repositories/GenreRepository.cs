@@ -7,44 +7,45 @@ namespace Infrastructure.Repositories;
 
 public class GenreRepository : IGenreRepository
 {
-    public void AddGenre(Genre genre)
+    public async Task AddGenre(Genre genre)
     {
         using var con = Database.Connection();
         con.Open();
         var sql = "insert into genres (name) values (@Name)";
-        con.Execute(sql, genre);
+        await con.ExecuteAsync(sql, genre);
     }
 
-    public void DeleteGenre(int id)
+    public async Task DeleteGenre(int id)
     {
         using var con = Database.Connection();
         con.Open();
         var sql = "delete from genres where id = @id";
-        con.Execute(sql, new { id });
+        await con.ExecuteAsync(sql, new { id });
     }
 
-    public List<Genre> GetGenres()
+    public async Task<List<Genre>> GetGenres()
     {
         using var con = Database.Connection();
         con.Open();
         var sql = "select * from genres";
-        var genres = con.Query<Genre>(sql).ToList();
+        var genres = (await con.QueryAsync<Genre>(sql)).ToList();
         return genres;
     }
 
-    public void UpdateGenre(Genre genre)
+    public async Task UpdateGenre(Genre genre)
     {
         using var con = Database.Connection();
         con.Open();
         var sql = "update genres set name = @Name where id = @Id";
-        con.Execute(sql, genre);
+        await con.ExecuteAsync(sql, genre);
     }
-    public void GetGenresAmount()
+    public async Task<int> GetGenresAmount()
     {
         using var con = Database.Connection();
         con.Open();
         var sql = "select count(*) from genres";
-        var genresAmount = con.ExecuteScalar<int>(sql);
+        var genresAmount = await con.ExecuteScalarAsync<int>(sql);
         Console.WriteLine($"Genres amount: {genresAmount}");
+        return genresAmount;
     }
 }

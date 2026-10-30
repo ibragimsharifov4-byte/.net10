@@ -4,8 +4,8 @@ namespace Infrastructure.Interfaces;
 
 public interface IBooknestRepository
 {
-    void AddBook(Booknest booknest);
-    List<Booknest> GetBooknests();
-    void Update(Booknest booknest);
-    void Delete(int id);
+    Task AddBook(Booknest booknest);
+    Task<List<Booknest>> GetBooknests();
+    Task Update(Booknest booknest);
+    Task Delete(int id);
 }
