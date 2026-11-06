@@ -2,45 +2,63 @@ using System.Data;
 using Dapper;
 using Domain.Models;
 using Infrastructure.Data;
-using Infrastructure.Interfaces;
+using Domain.Interfaces;
 using Npgsql;
 namespace Infrastructure.Repositories;
 
-public class BooknestRepository : IBooknestRepository
+public class BooknestRepository(AppDbContext appDbContext) : IBooknestRepository
 {
-    public async Task AddBook(Booknest booknest)
+    private AppDbContext _context = appDbContext;
+    public async Task<bool> AddBook(Booknest booknest)
     {
-        using var con = Database.Connection();
+        using var con = _context.Connection();
         con.Open();
         var sql = "insert into booknest(title , create_year , price) values (@title , @create_year , @price)";
-        await con.ExecuteAsync(sql , new{booknest.Title , booknest.CreateYear , booknest.Price});
+        var res = await con.ExecuteAsync(sql, new
+        {
+            title = booknest.Title,
+            create_year = booknest.CreateYear,
+            price = booknest.Price
+        });
+        return res>0;
     }
 
-    public async Task Delete(int id)
+    public async Task<Booknest> GetBooknest(int id)
     {
-        using var con = Database.Connection();
+        using var con = _context.Connection();
+        con.Open();
+        var sql = "select * from booknest where id = @id";
+        var book = await con.QuerySingleOrDefaultAsync<Booknest>(sql , new{id});
+        return book;
+    }
+
+    public async Task<bool> DeleteBook(int id)
+    {
+        using var con = _context.Connection();
         con.Open();
         var sql = "delete from booknest";
-        await con.ExecuteAsync(sql , new{id});
+        var res = await con.ExecuteAsync(sql , new{id});
+        return res>0;
     }
 
     public async Task<List<Booknest>> GetBooknests()
     {
-        using var con = Database.Connection();
+        using var con = _context.Connection();
         var sql = "select * from booknest";
         var books =  await con.QueryAsync<Booknest>(sql);
         return books.ToList();
     }
-    public async Task Update(Booknest booknest)
+    public async Task<bool> UpdateBook(Booknest booknest)
     {
-        using var con = Database.Connection();
+        using var con = _context.Connection();
         con.Open();
         var sql = "update booknest set title = @title , price = @price , @create_year = create_year where id = @id";
-        await con.ExecuteAsync(sql , new{booknest.Id , booknest.Title , booknest.CreateYear ,booknest.Price });
+        var res = await con.ExecuteAsync(sql , new{booknest.Id , booknest.Title , booknest.CreateYear ,booknest.Price });
+        return res>0;
     }
     public async Task GetBookAmount()
     {
-        using var con = Database.Connection();
+        using var con = _context.Connection();
         con.Open();
         var query = "select count(*) from booknest";
         var books = await con.ExecuteScalarAsync<int>(query);
@@ -48,7 +66,7 @@ public class BooknestRepository : IBooknestRepository
     }
     public async Task<int> GetMinPublishedYearByAuthor(int authorId)
     {
-        using var con = Database.Connection();
+        using var con = _context.Connection();
         con.Open();
         var sql = "select min(create_year) from booknest where author_id = @authorId";
         var minYear = await con.ExecuteScalarAsync<int>(sql, new { authorId });
@@ -58,7 +76,7 @@ public class BooknestRepository : IBooknestRepository
 
     public async Task<int> GetMaxPublishedYearByAuthor(int authorId)
     {
-        using var con = Database.Connection();
+        using var con = _context.Connection();
         con.Open();
         var sql = "select max(create_year) from booknest where author_id = @authorId";
         var maxYear = await con.ExecuteScalarAsync<int>(sql, new { authorId });
@@ -68,7 +86,7 @@ public class BooknestRepository : IBooknestRepository
 
     public async Task<int> GetMinPublishedYearByGenre(int genreId)
     {
-        using var con = Database.Connection();
+        using var con = _context.Connection();
         con.Open();
         var sql = "select min(create_year) from booknest where genre_id = @genreId";
         var minYear = await con.ExecuteScalarAsync<int>(sql, new { genreId });
@@ -78,7 +96,7 @@ public class BooknestRepository : IBooknestRepository
 
     public async Task<int> GetMaxPublishedYearByGenre(int genreId)
     {
-        using var con = Database.Connection();
+        using var con = _context.Connection();
         con.Open();
         var sql = "select max(create_year) from booknest where genre_id = @genreId";
         var maxYear = await con.ExecuteScalarAsync<int>(sql, new { genreId });
@@ -88,7 +106,7 @@ public class BooknestRepository : IBooknestRepository
 
     public async Task<int> GetAmountByPublishedYear(int year)
     {
-        using var con = Database.Connection();
+        using var con = _context.Connection();
         con.Open();
         var sql = "select count(*) from booknest where create_year = @year";
         var amount = await con.ExecuteScalarAsync<int>(sql, new { year });
@@ -98,7 +116,7 @@ public class BooknestRepository : IBooknestRepository
     
     public async Task<int> GetAmountByGenre(int genreId)
     {
-        using var con = Database.Connection();
+        using var con = _context.Connection();
         con.Open();
         var sql = "select count(*) from booknest where genre_id = @genreId";
         var amount = await con.ExecuteScalarAsync<int>(sql, new { genreId });

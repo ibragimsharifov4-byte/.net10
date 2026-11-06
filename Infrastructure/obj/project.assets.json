@@ -66,6 +66,19 @@
           }
         }
       },
+      "Application/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v10.0",
+        "dependencies": {
+          "Domain": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/Application.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Application.dll": {}
+        }
+      },
       "Domain/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v10.0",
@@ -222,6 +235,11 @@
         "postgresql.png"
       ]
     },
+    "Application/1.0.0": {
+      "type": "project",
+      "path": "../Application/Application.csproj",
+      "msbuildProject": "../Application/Application.csproj"
+    },
     "Domain/1.0.0": {
       "type": "project",
       "path": "../Domain/Domain.csproj",
@@ -230,6 +248,7 @@
   },
   "projectFileDependencyGroups": {
     "net10.0": [
+      "Application >= 1.0.0",
       "Dapper >= 2.1.89",
       "Domain >= 1.0.0",
       "Npgsql >= 10.0.3"
@@ -241,11 +260,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "c:\\Users\\mardin it\\OneDrive\\Desktop\\.net projects\\week2\\day1\\Infrastructure\\Infrastructure.csproj",
+      "projectUniqueName": "C:\\Users\\mardin it\\OneDrive\\Desktop\\.net projects\\week2\\day1\\Infrastructure\\Infrastructure.csproj",
       "projectName": "Infrastructure",
-      "projectPath": "c:\\Users\\mardin it\\OneDrive\\Desktop\\.net projects\\week2\\day1\\Infrastructure\\Infrastructure.csproj",
+      "projectPath": "C:\\Users\\mardin it\\OneDrive\\Desktop\\.net projects\\week2\\day1\\Infrastructure\\Infrastructure.csproj",
       "packagesPath": "C:\\Users\\mardin it\\.nuget\\packages\\",
-      "outputPath": "c:\\Users\\mardin it\\OneDrive\\Desktop\\.net projects\\week2\\day1\\Infrastructure\\obj\\",
+      "outputPath": "C:\\Users\\mardin it\\OneDrive\\Desktop\\.net projects\\week2\\day1\\Infrastructure\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\mardin it\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -261,6 +280,9 @@
           "framework": "net10.0",
           "targetAlias": "net10.0",
           "projectReferences": {
+            "C:\\Users\\mardin it\\OneDrive\\Desktop\\.net projects\\week2\\day1\\Application\\Application.csproj": {
+              "projectPath": "C:\\Users\\mardin it\\OneDrive\\Desktop\\.net projects\\week2\\day1\\Application\\Application.csproj"
+            },
             "C:\\Users\\mardin it\\OneDrive\\Desktop\\.net projects\\week2\\day1\\Domain\\Domain.csproj": {
               "projectPath": "C:\\Users\\mardin it\\OneDrive\\Desktop\\.net projects\\week2\\day1\\Domain\\Domain.csproj"
             }
