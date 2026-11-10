@@ -1,7 +1,7 @@
 using Application.Responses;
-using Domain.Models;
-using Microsoft.AspNetCore.Mvc;
 using Application.Interfaces;
+using Application.DTOs.BookDtos;
+using Microsoft.AspNetCore.Mvc;
 
 namespace WebApi.Controllers;
 
@@ -12,30 +12,30 @@ public class BookController(IBookService apiBookService) : ControllerBase
     private IBookService _bookService = apiBookService;
 
     [HttpGet]
-    public async Task<ApiResponse<List<Booknest>>> GetBooks()
+    public async Task<ApiResponse<List<BookDto>>> GetBooks()
     {
         return await _bookService.GetBooks();
     }
 
     [HttpGet("{id:int}")]
-    public async Task<ApiResponse<Booknest>> GetBook(int id)
+    public async Task<ApiResponse<BookByIdDto?>> GetBook(int id)
     {
         return await _bookService.GetBook(id);
     }
 
     [HttpPost]
-    public async Task<ApiResponse<bool>> AddBook(Booknest booknest)
+    public async Task<ApiResponse<bool>> AddBook(CreateBookDto bookDto)
     {
-        return await _bookService.AddBook(booknest);
+        return await _bookService.AddBook(bookDto);
     }
 
-    [HttpPut]
-    public async Task<ApiResponse<bool>> UpdateBook(Booknest booknest)
+    [HttpPut("{id:int}")]
+    public async Task<ApiResponse<bool>> UpdateBook(int id, UpdateBookDto bookDto)
     {
-        return await _bookService.UpdateBook(booknest);
+        return await _bookService.UpdateBook(id, bookDto);
     }
 
-    [HttpDelete]
+    [HttpDelete("{id:int}")]
     public async Task<ApiResponse<bool>> DeleteBook(int id)
     {
         return await _bookService.DeleteBook(id);

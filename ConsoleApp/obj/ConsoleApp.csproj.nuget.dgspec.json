@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\mardin it\\OneDrive\\Desktop\\.net projects\\week2\\day1\\ConsoleApp\\ConsoleApp.csproj": {}
+    "C:\\Users\\mardin it\\OneDrive\\Desktop\\.net projects\\week2\\booknest_with_dtos\\ConsoleApp\\ConsoleApp.csproj": {}
   },
   "projects": {
-    "C:\\Users\\mardin it\\OneDrive\\Desktop\\.net projects\\week2\\day1\\Application\\Application.csproj": {
+    "C:\\Users\\mardin it\\OneDrive\\Desktop\\.net projects\\week2\\booknest_with_dtos\\Application\\Application.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\mardin it\\OneDrive\\Desktop\\.net projects\\week2\\day1\\Application\\Application.csproj",
+        "projectUniqueName": "C:\\Users\\mardin it\\OneDrive\\Desktop\\.net projects\\week2\\booknest_with_dtos\\Application\\Application.csproj",
         "projectName": "Application",
-        "projectPath": "C:\\Users\\mardin it\\OneDrive\\Desktop\\.net projects\\week2\\day1\\Application\\Application.csproj",
+        "projectPath": "C:\\Users\\mardin it\\OneDrive\\Desktop\\.net projects\\week2\\booknest_with_dtos\\Application\\Application.csproj",
         "packagesPath": "C:\\Users\\mardin it\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\mardin it\\OneDrive\\Desktop\\.net projects\\week2\\day1\\Application\\obj\\",
+        "outputPath": "C:\\Users\\mardin it\\OneDrive\\Desktop\\.net projects\\week2\\booknest_with_dtos\\Application\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\mardin it\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -27,8 +27,8 @@
             "framework": "net10.0",
             "targetAlias": "net10.0",
             "projectReferences": {
-              "C:\\Users\\mardin it\\OneDrive\\Desktop\\.net projects\\week2\\day1\\Domain\\Domain.csproj": {
-                "projectPath": "C:\\Users\\mardin it\\OneDrive\\Desktop\\.net projects\\week2\\day1\\Domain\\Domain.csproj"
+              "C:\\Users\\mardin it\\OneDrive\\Desktop\\.net projects\\week2\\booknest_with_dtos\\Domain\\Domain.csproj": {
+                "projectPath": "C:\\Users\\mardin it\\OneDrive\\Desktop\\.net projects\\week2\\booknest_with_dtos\\Domain\\Domain.csproj"
               }
             }
           }
@@ -343,14 +343,14 @@
         }
       }
     },
-    "C:\\Users\\mardin it\\OneDrive\\Desktop\\.net projects\\week2\\day1\\ConsoleApp\\ConsoleApp.csproj": {
+    "C:\\Users\\mardin it\\OneDrive\\Desktop\\.net projects\\week2\\booknest_with_dtos\\ConsoleApp\\ConsoleApp.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\mardin it\\OneDrive\\Desktop\\.net projects\\week2\\day1\\ConsoleApp\\ConsoleApp.csproj",
+        "projectUniqueName": "C:\\Users\\mardin it\\OneDrive\\Desktop\\.net projects\\week2\\booknest_with_dtos\\ConsoleApp\\ConsoleApp.csproj",
         "projectName": "ConsoleApp",
-        "projectPath": "C:\\Users\\mardin it\\OneDrive\\Desktop\\.net projects\\week2\\day1\\ConsoleApp\\ConsoleApp.csproj",
+        "projectPath": "C:\\Users\\mardin it\\OneDrive\\Desktop\\.net projects\\week2\\booknest_with_dtos\\ConsoleApp\\ConsoleApp.csproj",
         "packagesPath": "C:\\Users\\mardin it\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\mardin it\\OneDrive\\Desktop\\.net projects\\week2\\day1\\ConsoleApp\\obj\\",
+        "outputPath": "C:\\Users\\mardin it\\OneDrive\\Desktop\\.net projects\\week2\\booknest_with_dtos\\ConsoleApp\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\mardin it\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -366,11 +366,11 @@
             "framework": "net10.0",
             "targetAlias": "net10.0",
             "projectReferences": {
-              "C:\\Users\\mardin it\\OneDrive\\Desktop\\.net projects\\week2\\day1\\Domain\\Domain.csproj": {
-                "projectPath": "C:\\Users\\mardin it\\OneDrive\\Desktop\\.net projects\\week2\\day1\\Domain\\Domain.csproj"
+              "C:\\Users\\mardin it\\OneDrive\\Desktop\\.net projects\\week2\\booknest_with_dtos\\Domain\\Domain.csproj": {
+                "projectPath": "C:\\Users\\mardin it\\OneDrive\\Desktop\\.net projects\\week2\\booknest_with_dtos\\Domain\\Domain.csproj"
               },
-              "C:\\Users\\mardin it\\OneDrive\\Desktop\\.net projects\\week2\\day1\\Infrastructure\\Infrastructure.csproj": {
-                "projectPath": "C:\\Users\\mardin it\\OneDrive\\Desktop\\.net projects\\week2\\day1\\Infrastructure\\Infrastructure.csproj"
+              "C:\\Users\\mardin it\\OneDrive\\Desktop\\.net projects\\week2\\booknest_with_dtos\\Infrastructure\\Infrastructure.csproj": {
+                "projectPath": "C:\\Users\\mardin it\\OneDrive\\Desktop\\.net projects\\week2\\booknest_with_dtos\\Infrastructure\\Infrastructure.csproj"
               }
             }
           }
@@ -685,14 +685,14 @@
         }
       }
     },
-    "C:\\Users\\mardin it\\OneDrive\\Desktop\\.net projects\\week2\\day1\\Domain\\Domain.csproj": {
+    "C:\\Users\\mardin it\\OneDrive\\Desktop\\.net projects\\week2\\booknest_with_dtos\\Domain\\Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\mardin it\\OneDrive\\Desktop\\.net projects\\week2\\day1\\Domain\\Domain.csproj",
+        "projectUniqueName": "C:\\Users\\mardin it\\OneDrive\\Desktop\\.net projects\\week2\\booknest_with_dtos\\Domain\\Domain.csproj",
         "projectName": "Domain",
-        "projectPath": "C:\\Users\\mardin it\\OneDrive\\Desktop\\.net projects\\week2\\day1\\Domain\\Domain.csproj",
+        "projectPath": "C:\\Users\\mardin it\\OneDrive\\Desktop\\.net projects\\week2\\booknest_with_dtos\\Domain\\Domain.csproj",
         "packagesPath": "C:\\Users\\mardin it\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\mardin it\\OneDrive\\Desktop\\.net projects\\week2\\day1\\Domain\\obj\\",
+        "outputPath": "C:\\Users\\mardin it\\OneDrive\\Desktop\\.net projects\\week2\\booknest_with_dtos\\Domain\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\mardin it\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -1020,14 +1020,14 @@
         }
       }
     },
-    "C:\\Users\\mardin it\\OneDrive\\Desktop\\.net projects\\week2\\day1\\Infrastructure\\Infrastructure.csproj": {
+    "C:\\Users\\mardin it\\OneDrive\\Desktop\\.net projects\\week2\\booknest_with_dtos\\Infrastructure\\Infrastructure.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\mardin it\\OneDrive\\Desktop\\.net projects\\week2\\day1\\Infrastructure\\Infrastructure.csproj",
+        "projectUniqueName": "C:\\Users\\mardin it\\OneDrive\\Desktop\\.net projects\\week2\\booknest_with_dtos\\Infrastructure\\Infrastructure.csproj",
         "projectName": "Infrastructure",
-        "projectPath": "C:\\Users\\mardin it\\OneDrive\\Desktop\\.net projects\\week2\\day1\\Infrastructure\\Infrastructure.csproj",
+        "projectPath": "C:\\Users\\mardin it\\OneDrive\\Desktop\\.net projects\\week2\\booknest_with_dtos\\Infrastructure\\Infrastructure.csproj",
         "packagesPath": "C:\\Users\\mardin it\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\mardin it\\OneDrive\\Desktop\\.net projects\\week2\\day1\\Infrastructure\\obj\\",
+        "outputPath": "C:\\Users\\mardin it\\OneDrive\\Desktop\\.net projects\\week2\\booknest_with_dtos\\Infrastructure\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\mardin it\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -1043,11 +1043,11 @@
             "framework": "net10.0",
             "targetAlias": "net10.0",
             "projectReferences": {
-              "C:\\Users\\mardin it\\OneDrive\\Desktop\\.net projects\\week2\\day1\\Application\\Application.csproj": {
-                "projectPath": "C:\\Users\\mardin it\\OneDrive\\Desktop\\.net projects\\week2\\day1\\Application\\Application.csproj"
+              "C:\\Users\\mardin it\\OneDrive\\Desktop\\.net projects\\week2\\booknest_with_dtos\\Application\\Application.csproj": {
+                "projectPath": "C:\\Users\\mardin it\\OneDrive\\Desktop\\.net projects\\week2\\booknest_with_dtos\\Application\\Application.csproj"
               },
-              "C:\\Users\\mardin it\\OneDrive\\Desktop\\.net projects\\week2\\day1\\Domain\\Domain.csproj": {
-                "projectPath": "C:\\Users\\mardin it\\OneDrive\\Desktop\\.net projects\\week2\\day1\\Domain\\Domain.csproj"
+              "C:\\Users\\mardin it\\OneDrive\\Desktop\\.net projects\\week2\\booknest_with_dtos\\Domain\\Domain.csproj": {
+                "projectPath": "C:\\Users\\mardin it\\OneDrive\\Desktop\\.net projects\\week2\\booknest_with_dtos\\Domain\\Domain.csproj"
               }
             }
           }

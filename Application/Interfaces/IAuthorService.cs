@@ -1,13 +1,13 @@
 using Application.Responses;
-using Domain.Models;
+using Application.DTOs.AuthorDtos;
 
 namespace Application.Interfaces;
 
 public interface IAuthorService
 {
-    Task<ApiResponse<List<Author>>> GetAuthors();
-    Task<ApiResponse<bool>> AddAuthor(Author author);
+    Task<ApiResponse<List<AuthorDto>>> GetAuthors();
+    Task<ApiResponse<bool>> AddAuthor(CreateAuthorDto authorDto);
     Task<ApiResponse<bool>> DeleteAuthor(int id);
-    Task<ApiResponse<Author>> GetAuthor(int id);
-    Task<ApiResponse<bool>> UpdateAuthor(Author author);
+    Task<ApiResponse<AuthorByIdDto?>> GetAuthor(int id);
+    Task<ApiResponse<bool>> UpdateAuthor(int id, UpdateAuthorDto authorDto);
 }

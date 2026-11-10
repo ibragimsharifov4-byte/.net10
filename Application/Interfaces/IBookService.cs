@@ -1,13 +1,13 @@
 using Application.Responses;
-using Domain.Models;
+using Application.DTOs.BookDtos;
 
 namespace Application.Interfaces;
 
 public interface IBookService
 {
-    Task<ApiResponse<List<Booknest>>> GetBooks();
-    Task<ApiResponse<bool>> AddBook(Booknest booknest);
+    Task<ApiResponse<List<BookDto>>> GetBooks();
+    Task<ApiResponse<bool>> AddBook(CreateBookDto bookDto);
     Task<ApiResponse<bool>> DeleteBook(int id);
-    Task<ApiResponse<bool>> UpdateBook(Booknest booknest);
-    Task<ApiResponse<Booknest>> GetBook(int id);
+    Task<ApiResponse<bool>> UpdateBook(int id, UpdateBookDto bookDto);
+    Task<ApiResponse<BookByIdDto?>> GetBook(int id);
 }

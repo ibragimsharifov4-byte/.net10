@@ -1,7 +1,7 @@
 using Application.Responses;
-using Domain.Models;
-using Microsoft.AspNetCore.Mvc;
 using Application.Interfaces;
+using Application.DTOs.GenreDtos;
+using Microsoft.AspNetCore.Mvc;
 
 namespace WebApi.Controllers;
 
@@ -12,30 +12,30 @@ public class GenreController(IGenreService genreService) : ControllerBase
     private IGenreService _genreService = genreService;
 
     [HttpGet]
-    public async Task<ApiResponse<List<Genre>>> GetGenres()
+    public async Task<ApiResponse<List<GenreDto>>> GetGenres()
     {
         return await _genreService.GetGenres();
     }
 
     [HttpGet("{id:int}")]
-    public async Task<ApiResponse<Genre>> GetGenre(int id)
+    public async Task<ApiResponse<GenreByIdDto?>> GetGenre(int id)
     {
         return await _genreService.GetGenre(id);
     }
 
     [HttpPost]
-    public async Task<ApiResponse<bool>> AddGenre(Genre genre)
+    public async Task<ApiResponse<bool>> AddGenre(CreateGenreDto genreDto)
     {
-        return await _genreService.AddGenre(genre);
+        return await _genreService.AddGenre(genreDto);
     }
 
-    [HttpPut]
-    public async Task<ApiResponse<bool>> UpdateGenre(Genre genre)
+    [HttpPut("{id:int}")]
+    public async Task<ApiResponse<bool>> UpdateGenre(int id, UpdateGenreDto genreDto)
     {
-        return await _genreService.UpdateGenre(genre);
+        return await _genreService.UpdateGenre(id, genreDto);
     }
 
-    [HttpDelete]
+    [HttpDelete("{id:int}")]
     public async Task<ApiResponse<bool>> DeleteGenre(int id)
     {
         return await _genreService.DeleteGenre(id);
