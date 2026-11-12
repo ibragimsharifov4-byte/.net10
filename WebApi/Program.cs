@@ -3,6 +3,7 @@ using Application.Services;
 using Domain.Interfaces;
 using Infrastructure.Data;
 using Infrastructure.Repositories;
+using WebApi.Requests;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -30,5 +31,6 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+app.UseMiddleware<RequestLoggingMiddleWare>();
 app.MapControllers();
 app.Run();
