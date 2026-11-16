@@ -1,7 +1,7 @@
-using Dapper;
 using Domain.Models;
 using Infrastructure.Data;
 using Domain.Interfaces;
+using Microsoft.EntityFrameworkCore;
 
 namespace Infrastructure.Repositories;
 
@@ -10,56 +10,44 @@ public class AuthorRepository(AppDbContext appDbContext) : IAuthorRepository
     private AppDbContext _context = appDbContext;
     public async Task<bool> AddAuthor(Author author)
     {
-        using var con = _context.Connection();
-        con.Open();
-        var sql = "insert into author (fullname, country, birthdate) values (@Fullname, @Country, @Birthdate)";
-        var res = await con.ExecuteAsync(sql, author);
-        return res>0;
+        _context.Authors.Add(author);
+        var res = await _context.SaveChangesAsync();
+        return res > 0;
     }
 
     public async Task<bool> DeleteAuthor(int id)
     {
-        using var con = _context.Connection();
-        con.Open();
-        var sql = "delete from author where id = @id";
-        var res = await con.ExecuteAsync(sql, new { id });
-        return res>0;
+        var author = await _context.Authors.FirstOrDefaultAsync(x => x.Id == id);
+        if(author != null)
+        {
+            _context.Authors.Remove(author);
+        }
+        var res = await _context.SaveChangesAsync();
+        return res > 0;
     }
 
     public async Task<List<Author>> GetAuthors()
     {
-        using var con = _context.Connection();
-        con.Open();
-        var sql = "select * from author";
-        var authors = (await con.QueryAsync<Author>(sql)).ToList();
-        return authors;
+        return await _context.Authors.ToListAsync();
     }
 
     public async Task<Author> GetAuthor(int id)
     {
-        using var con = _context.Connection();
-        con.Open();
-        var sql = "select * from author where id = @id";
-        var res = await con.QuerySingleOrDefaultAsync<Author>(sql , new{id});
-        return res;
+        var res = await _context.Authors.FirstOrDefaultAsync(x => x.Id == id);
+        return res ?? new();
     }
 
     public async Task<bool> UpdateAuthor(Author author)
     {
-        using var con = _context.Connection();
-        con.Open();
-        var sql = "update author set fullname = @Fullname, country = @Country, birthdate = @Birthdate where id = @Id";
-        var res = await con.ExecuteAsync(sql, author);
-        return res>0;
-    }
-    public async Task<int> GetAuthorsAmount()
-    {
-        using var con = _context.Connection();
-        con.Open();
-        var sql = "select count(*) from author";
-        var authorsAmount = await con.ExecuteScalarAsync<int>(sql);
-        Console.WriteLine($"Authors amount: {authorsAmount}");
-        return authorsAmount;
+        var auth = await _context.Authors.FirstOrDefaultAsync(x => x.Id == author.Id);
+        if(auth !=null)
+        {
+            auth.Fullname = author.Fullname;
+            auth.Country = author.Country;
+            auth.Birthdate = author.Birthdate;
+        }
+        var res = await _context.SaveChangesAsync();
+        return res > 0;
     }
     
 }

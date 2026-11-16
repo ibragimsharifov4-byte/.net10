@@ -3,6 +3,7 @@ using Application.Services;
 using Domain.Interfaces;
 using Infrastructure.Data;
 using Infrastructure.Repositories;
+using Microsoft.EntityFrameworkCore;
 using WebApi.Requests;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -12,7 +13,8 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddControllers();
 builder.Services.AddSwaggerGen();
 
-builder.Services.AddScoped<AppDbContext>();
+builder.Services.AddDbContext<AppDbContext>(options =>
+    options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));
 builder.Services.AddScoped<IBooknestRepository, BooknestRepository>();
 builder.Services.AddScoped<IBookService, BookService>();
 
